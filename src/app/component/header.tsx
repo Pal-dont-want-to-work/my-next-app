@@ -5,6 +5,12 @@ import Image from 'next/image'
 import { useState } from 'react'
 import { Button } from "@/components/ui/button"
 import { Menu, X } from 'lucide-react'
+import {
+  SignInButton,
+  SignedIn,
+  SignedOut,
+  UserButton
+} from '@clerk/nextjs'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -14,11 +20,11 @@ export default function Header() {
   }
 
   const navigation = [
-    { name: '首页', href: '/' },
-    { name: '产品', href: '/#product' },
-    { name: '对比', href: '/feature-comparison' },
-    { name: '关于我们', href: '/about' },
-    { name: '联系我们', href: '/#contact' },
+    { name: 'Home', href: '/' },
+    { name: 'Product', href: '/#product' },
+    { name: 'Compare', href: '/feature-comparison' },
+    { name: 'About', href: '/about' },
+    { name: 'Contact', href: '/#contact' },
   ]
 
   return (
@@ -60,8 +66,16 @@ export default function Header() {
               </Link>
             ))}
           </nav>
-          <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-            <Button asChild>
+          <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0 space-x-4">
+            <SignedOut>
+              <Button variant="outline" className="bg-white hover:bg-gray-50">
+                <SignInButton />
+              </Button>
+            </SignedOut>
+            <SignedIn>
+              <UserButton afterSignOutUrl="/" />
+            </SignedIn>
+            <Button asChild className="bg-indigo-600 hover:bg-indigo-700">
               <Link href="/get-started">Get Started</Link>
             </Button>
           </div>
@@ -76,8 +90,18 @@ export default function Header() {
               {item.name}
             </Link>
           ))}
-          <div className="mt-4">
-            <Button asChild className="w-full">
+          <div className="mt-4 space-y-2">
+            <SignedOut>
+              <Button variant="outline" className="w-full bg-white hover:bg-gray-50">
+                <SignInButton />
+              </Button>
+            </SignedOut>
+            <SignedIn>
+              <div className="flex justify-center">
+                <UserButton afterSignOutUrl="/" />
+              </div>
+            </SignedIn>
+            <Button asChild className="w-full bg-indigo-600 hover:bg-indigo-700">
               <Link href="/get-started">Get Started</Link>
             </Button>
           </div>
