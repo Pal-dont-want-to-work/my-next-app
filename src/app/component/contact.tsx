@@ -34,7 +34,7 @@ export default function ContactUs() {
             Get in Touch
           </p>
           <p className="mt-6 text-lg leading-8 text-gray-600">
-            We'd love to hear from you. Please fill out this form or use our contact information below.
+            We&apos;d love to hear from you. Please fill out this form or use our contact information below.
           </p>
         </div>
         <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 text-base leading-7 sm:grid-cols-2 sm:gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">

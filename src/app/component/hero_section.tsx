@@ -18,10 +18,10 @@ export default function HeroSection() {
       <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8">
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white mb-4 tracking-tight">
           <span className="block">Avengers Assemble</span>
-          <span className="block text-blue-400">Earth's Mightiest Heroes</span>
+          <span className="block text-blue-400">Earth&apos;s Mightiest Heroes</span>
         </h1>
         <p className="mt-3 max-w-md mx-auto text-base text-gray-300 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
-          Join the fight to protect our world from the greatest threats in the universe. Together, we are unstoppable.
+          Join the fight to protect our world from the greatest threats in the universe. Together, we&apos;re unstoppable.
         </p>
         <div className="mt-10 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">
           <div className="space-y-4 sm:space-y-0 sm:mx-auto sm:inline-grid sm:grid-cols-2 sm:gap-5">
