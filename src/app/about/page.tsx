@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-export default function About() {
+export default function AboutPage() {
   const teamMembers = [
     {
       name: 'Jane Cooper',
@@ -40,8 +40,8 @@ export default function About() {
             Empowering Innovation Through Technology
           </p>
           <p className="mt-6 text-lg leading-8 text-gray-600">
-            At TechCorp, we're on a mission to revolutionize the way businesses interact with technology. 
-            Founded in 2010, we've been at the forefront of digital transformation, helping companies of all sizes 
+            At TechCorp, we&apos;re on a mission to revolutionize the way businesses interact with technology. 
+            Founded in 2010, we&apos;ve been at the forefront of digital transformation, helping companies of all sizes 
             harness the power of cutting-edge solutions to drive growth and efficiency.
           </p>
         </div>

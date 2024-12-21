@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import { MailIcon, PhoneIcon, MapPinIcon } from 'lucide-react'
 
 export default function ContactUs() {
   const [formData, setFormData] = useState({

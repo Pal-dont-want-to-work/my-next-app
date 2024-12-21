@@ -2,7 +2,6 @@
 
 import { Check } from 'lucide-react'
 import { useState } from 'react'
-import { useRouter } from 'next/navigation'
 
 interface PricingTier {
   name: string;
@@ -71,40 +70,7 @@ const tiers: PricingTier[] = [
 
 export default function PricingSection() {
   const [isYearly, setIsYearly] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
-  const router = useRouter()
-
-  const handlePayment = async (tier: PricingTier) => {
-    try {
-      setIsLoading(true)
-      const price = isYearly ? tier.price.yearly : tier.price.monthly
-
-      const response = await fetch('/api/create-payment', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          tier: tier.name,
-          price: price,
-        }),
-      })
-
-      const data = await response.json()
-
-      if (data.paymentUrl) {
-        // 重定向到支付宝支付页面
-        window.location.href = data.paymentUrl
-      } else {
-        throw new Error('Failed to get payment URL')
-      }
-    } catch (error) {
-      console.error('Payment initiation failed:', error)
-      alert('Payment initiation failed. Please try again.')
-    } finally {
-      setIsLoading(false)
-    }
-  }
+//   const [isLoading, setIsLoading] = useState(false)
 
   return (
     <div id="pricing" className="bg-gray-50 py-24 sm:py-32">
@@ -186,17 +152,13 @@ export default function PricingSection() {
                 </ul>
               </div>
               <button
-                onClick={() => handlePayment(tier)}
-                disabled={isLoading}
                 className={`mt-8 block w-full rounded-md px-3 py-2 text-center text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${
-                  isLoading ? 'opacity-50 cursor-not-allowed' : ''
-                } ${
                   tier.highlighted
                     ? 'bg-indigo-600 text-white hover:bg-indigo-500 focus-visible:outline-indigo-600'
                     : 'bg-white text-indigo-600 ring-1 ring-inset ring-indigo-200 hover:ring-indigo-300'
                 }`}
               >
-                {isLoading ? 'Processing...' : 'Get started'}
+                Get started
               </button>
             </div>
           ))}
